@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<title>Henry 的海底撈 100 次用餐之路</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="達成黑海會員後，Henry 多久才能累積達成 100 次用餐呢？">
+	<link rel="stylesheet" href="tocas.min.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+	<style>
+		.number {
+			font-family: "Roboto", serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+			font-variation-settings: "wdth" 100;
+			letter-spacing: .1em;
+		}
+	</style>
+</head>
+<body>
+	<div class="ts-container is-narrow has-vertically-padded-large">
+		<div class="ts-wrap is-vertical has-vertically-spaced-large is-relaxed">
+			<div>
+				<div class="ts-text is-secondary">上一個挑戰：<a href="https://haidilao-black.henrywu.tw/">海底撈黑海會員之路</a></div>
+				<h1 class="ts-header is-big is-center-aligned">Henry 的海底撈 100 次用餐之路</h1>
+			</div>
+			<div class="ts-progress is-big">
+				<div class="bar" style="--value: <%= logs.length %>">
+					<div class="text"><span class="number"><%= logs.length %></span> 次</div>
+				</div>
+			</div>
+			<div class="ts-box">
+				<table class="ts-table is-small">
+					<thead>
+						<tr>
+							<th>日期</th>
+							<th>分店</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% logs.forEach(log => { %>
+							<tr>
+								<td class="number"><%= log.day %></td>
+								<td><%= log.restaurant %></td>
+							</tr>
+						<% }) %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
