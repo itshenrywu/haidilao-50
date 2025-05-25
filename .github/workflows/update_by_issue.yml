@@ -50,7 +50,7 @@ jobs:
           exit 1
         fi
 
-        NEW_ENTRY="{ \"day\": \"$day\", \"restaurant\": $restaurant }"
+        NEW_ENTRY="{ \"day\": \"$day\", \"restaurant\": \"$restaurant\" }"
         jq ". + [$NEW_ENTRY]" "$LOGS_FILE" > tmp.$$.json && mv tmp.$$.json "$LOGS_FILE"
 
     - name: Commit and push changes
