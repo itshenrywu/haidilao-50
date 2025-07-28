@@ -1,90 +1,117 @@
 [
   {
     "day": "2024/4/17",
-    "restaurant": "板橋大遠百店"
+    "restaurant": "板橋大遠百店",
+    "me": true
   },
   {
     "day": "2024/7/21",
-    "restaurant": null
+    "restaurant": null,
+    "me": true
   },
   {
     "day": "2024/7/30",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2024/9/12",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2024/10/20",
-    "restaurant": "微風南山店"
+    "restaurant": "微風南山店",
+    "me": true
   },
   {
     "day": "2024/11/20",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2024/12/4",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2024/12/8",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2024/12/25",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/1/5",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2025/1/6",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": false
   },
   {
     "day": "2025/1/17",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": false
   },
   {
     "day": "2025/2/5",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/2/24",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/3/6",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/4/3",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/5/9",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/5/24",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": false
   },
   {
     "day": "2025/5/27",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": true
   },
   {
     "day": "2025/6/9",
-    "restaurant": "新莊宏匯店"
+    "restaurant": "新莊宏匯店",
+    "me": false
   },
   {
     "day": "2025/6/10",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
   },
   {
     "day": "2025/7/27",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "me": true
+  },
+  {
+    "day": "2025/7/28",
+    "restaurant": "新莊宏匯店",
+    "me": false
   }
 ]

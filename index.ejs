@@ -42,7 +42,7 @@
 					</thead>
 					<tbody>
 						<% logs.forEach(log => { %>
-							<tr>
+							<tr <% if (log.me) { %>class="is-indicated"<% } %>>
 								<td class="number"><%= log.day %></td>
 								<td><%= log.restaurant %></td>
 							</tr>
