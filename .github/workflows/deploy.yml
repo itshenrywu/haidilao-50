@@ -40,4 +40,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./deploy
         force_orphan: true
-        cname: "haidilao-100.henrywu.tw"
+        cname: "haidilao-50.henrywu.tw"
