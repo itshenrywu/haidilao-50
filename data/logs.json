@@ -2,135 +2,136 @@
   {
     "day": "2024/4/17",
     "restaurant": "板橋大遠百店",
-    "me": true
+    "pay": "?"
   },
   {
-    "day": "2024/7/21",
-    "restaurant": null,
-    "me": true
+    "day": "2024/6/21",
+    "restaurant": "京站店",
+    "pay": "?"
   },
   {
     "day": "2024/7/30",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 1205
   },
   {
     "day": "2024/9/12",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": "?"
   },
   {
     "day": "2024/10/20",
     "restaurant": "微風南山店",
-    "me": true
+    "pay": 954
   },
   {
     "day": "2024/11/20",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 1025
   },
   {
     "day": "2024/12/4",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 866
   },
   {
     "day": "2024/12/8",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 912
   },
   {
     "day": "2024/12/25",
     "restaurant": "京站店",
-    "me": true
+    "pay": 945
   },
   {
     "day": "2025/1/5",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 851
   },
   {
     "day": "2025/1/6",
     "restaurant": "新莊宏匯店",
-    "me": false
+    "pay": 0
   },
   {
     "day": "2025/1/17",
     "restaurant": "新莊宏匯店",
-    "me": false
+    "pay": 0
   },
   {
     "day": "2025/2/5",
     "restaurant": "京站店",
-    "me": true
+    "pay": 898
   },
   {
     "day": "2025/2/24",
     "restaurant": "京站店",
-    "me": true
+    "pay": 1030
   },
   {
     "day": "2025/3/6",
     "restaurant": "京站店",
-    "me": true
+    "pay": 851
   },
   {
     "day": "2025/4/3",
     "restaurant": "京站店",
-    "me": true
+    "pay": 1015
   },
   {
     "day": "2025/5/9",
     "restaurant": "京站店",
-    "me": true
+    "pay": 835
   },
   {
     "day": "2025/5/24",
     "restaurant": "新莊宏匯店",
-    "me": false
+    "pay": 0
   },
   {
     "day": "2025/5/27",
     "restaurant": "新莊宏匯店",
-    "me": true
+    "pay": 1049
   },
   {
     "day": "2025/6/9",
     "restaurant": "新莊宏匯店",
-    "me": false
+    "pay": 0
   },
   {
     "day": "2025/6/10",
     "restaurant": "京站店",
-    "me": true
+    "pay": 0
   },
   {
     "day": "2025/7/27",
     "restaurant": "京站店",
-    "me": true
+    "pay": 798
   },
   {
     "day": "2025/7/28",
     "restaurant": "新莊宏匯店",
-    "me": false
+    "pay": 0
   },
   {
     "day": "2025/8/11",
-    "restaurant": "京站店"
+    "restaurant": "京站店",
+    "pay": 0
   },
   {
     "day": "2025/8/12",
     "restaurant": "京站店",
-    "me": true
+    "pay": 671
   },
   {
     "day": "2025/8/21",
     "restaurant": "京站店",
-    "me": true
+    "pay": 928
   },
   {
     "day": "2025/9/19",
     "restaurant": "京站店",
-    "me": true
+    "pay": 993
   }
 ]

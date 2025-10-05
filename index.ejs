@@ -10,13 +10,27 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
 	<style>
+		html {
+			font-size: 18px;
+		}
+
 		.number {
-			font-family: "Roboto", serif;
+			font-family: "Roboto", "Noto Sans TC","SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue",Helvetica,Arial,"Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
 			font-optical-sizing: auto;
 			font-weight: 400;
 			font-style: normal;
 			font-variation-settings: "wdth" 100;
 			letter-spacing: .1em;
+		}
+
+		.mostVisitedCount {
+			margin-left: .5rem;
+		}
+
+		@media only screen and (max-width: 768px) {
+			html {
+				font-size: 16px;
+			}
 		}
 	</style>
 </head>
@@ -32,19 +46,42 @@
 					<div class="text"><span class="number"><%= logs.length %></span> 次</div>
 				</div>
 			</div>
+			<div class="ts-grid is-stretched is-2-columns">
+				<div class="column">
+					<div class="ts-box">
+						<div class="ts-content">
+							<div class="ts-text is-label is-tiny has-bottom-spaced-small">最愛分店</div>
+							<div class="ts-header">
+								<%= mostVisited.name %>
+								<div class="ts-text is-secondary is-tiny mostVisitedCount">( <%= mostVisited.count %> 次 )</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ts-box">
+						<div class="ts-content">
+							<div class="ts-text is-label is-tiny has-bottom-spaced-small">生涯個人花費</div>
+							<div class="ts-header"><%= total %></div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="ts-box">
 				<table class="ts-table is-small">
 					<thead>
 						<tr>
 							<th>日期</th>
 							<th>分店</th>
+							<th>個人花費</th>
 						</tr>
 					</thead>
 					<tbody>
 						<% logs.forEach(log => { %>
 							<tr>
-								<td class="number<% if (log.me) { %> is-indicated<% } %>"><%= log.day %></td>
+								<td class="number"><%= log.day %></td>
 								<td><%= log.restaurant %></td>
+								<td class="number"><%- log.pay %></td>
 							</tr>
 						<% }) %>
 					</tbody>
