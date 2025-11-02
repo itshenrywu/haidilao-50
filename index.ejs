@@ -10,7 +10,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap&text=1234567890," rel="stylesheet">
 	<style>
-		html{font-size:18px}.number{font-family:Roboto,"Noto Sans TC","SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue",Helvetica,Arial,"Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;font-optical-sizing:auto;font-weight:400;font-style:normal;font-variation-settings:"wdth" 100;letter-spacing:.1em}.mostVisitedCount{margin-left:.5rem}@media only screen and (max-width:768px){html{font-size:16px}}
+		html{font-size:18px}.number{font-family:Roboto,"Noto Sans TC","SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue",Helvetica,Arial,"Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;font-optical-sizing:auto;font-weight:400;font-style:normal;font-variation-settings:"wdth" 100;letter-spacing:.1em}.most_visited div{margin-left:.5rem}.box_content {display:flex;flex-direction:column;height:100%;justify-content:space-between}
+		@media only screen and (max-width:768px){html{font-size:16px}.most_visited,.most_visited div{display:inline}}
 	</style>
 </head>
 <body>
@@ -28,18 +29,18 @@
 			<div class="ts-grid is-stretched is-2-columns">
 				<div class="column">
 					<div class="ts-box">
-						<div class="ts-content">
+						<div class="ts-content box_content">
 							<div class="ts-text is-label is-tiny has-bottom-spaced-small">最愛分店</div>
-							<div class="ts-header">
+							<div class="ts-header most_visited">
 								<%= mostVisited.name %>
-								<div class="ts-text is-secondary is-tiny mostVisitedCount">( <span class="number"><%= mostVisited.count %></span> 次 )</div>
+								<div class="ts-text is-secondary is-tiny">( <span class="number"><%= mostVisited.count %></span> 次 )</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="column">
 					<div class="ts-box">
-						<div class="ts-content">
+						<div class="ts-content box_content">
 							<div class="ts-text is-label is-tiny has-bottom-spaced-small">生涯個人花費</div>
 							<div class="ts-header"><span class="number"><%= total %></span></div>
 						</div>

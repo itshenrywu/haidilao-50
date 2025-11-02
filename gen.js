@@ -9,7 +9,7 @@ logs.sort((a, b) => {
 const initialState = {
 	total: 0,
 	restaurantToCount: {},
-	mostVisited: { name: null, count: 0 },
+	mostVisited: { name: '', count: 0 },
 	formattedLogs: [],
 };
 
@@ -23,6 +23,9 @@ const result = logs.reduce((acc, log) => {
 
 	if (newCount > acc.mostVisited.count) {
 		acc.mostVisited = { name, count: newCount };
+	}
+	else if (newCount === acc.mostVisited.count) {
+		acc.mostVisited.name += `、${name}`;
 	}
 
 	const value = typeof log.pay === 'string' ? Number(log.pay) : log.pay;
