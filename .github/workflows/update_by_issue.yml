@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Analyze issue content
       id: analyze_issue
@@ -22,22 +22,56 @@ jobs:
         AUTHOR="${{ github.event.issue.user.login }}"
         OWNER="${{ github.repository_owner }}"
 
+        # 1. 權限檢查
         if [[ "$AUTHOR" != "$OWNER" ]]; then
-          echo "::set-output name=success::false"
-          echo "::set-output name=message::Issue not created by repository owner ($OWNER)."
+          echo "success=false" >> $GITHUB_OUTPUT
+          echo "message=Issue not created by repository owner ($OWNER)." >> $GITHUB_OUTPUT
           exit 0
         fi
 
+        # 2. 標題日期檢查 (YYYY/MM/DD)
         if [[ ! $TITLE =~ ^[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}$ ]]; then
-          echo "::set-output name=success::false"
-          echo "::set-output name=message::Title is not a valid date (YYYY/MM/DD)."
+          echo "success=false" >> $GITHUB_OUTPUT
+          echo "message=Title is not a valid date (YYYY/MM/DD)." >> $GITHUB_OUTPUT
           exit 0
         fi
 
-        echo "::set-output name=success::true"
-        echo "::set-output name=message::Log updated successfully."
+        # 3. 內文格式拆解與檢查 (餐廳,金額)
+        # 去除可能存在的換行符號
+        CLEAN_BODY=$(echo "$BODY" | tr -d '\r' | head -n 1)
+        
+        if [[ "$CLEAN_BODY" != *","* ]]; then
+          echo "success=false" >> $GITHUB_OUTPUT
+          echo "message=Body format error. Expected 'Restaurant,Pay'." >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        IFS=',' read -r RES PAY <<< "$CLEAN_BODY"
+        
+        # 移除前後空白
+        RES=$(echo "$RES" | xargs)
+        PAY=$(echo "$PAY" | xargs)
+
+        # 檢查餐廳是否以 "店" 結尾
+        if [[ ! "$RES" =~ 店$ ]]; then
+          echo "success=false" >> $GITHUB_OUTPUT
+          echo "message=Restaurant name must end with '店' (Got: $RES)." >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # 檢查金額是否為整數
+        if [[ ! "$PAY" =~ ^[0-9]+$ ]]; then
+          echo "success=false" >> $GITHUB_OUTPUT
+          echo "message=Pay must be an integer (Got: $PAY)." >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # 驗證通過，寫入環境變數與輸出
+        echo "success=true" >> $GITHUB_OUTPUT
+        echo "message=Log updated successfully." >> $GITHUB_OUTPUT
         echo "day=$TITLE" >> $GITHUB_ENV
-        echo "restaurant=$BODY" >> $GITHUB_ENV
+        echo "restaurant=$RES" >> $GITHUB_ENV
+        echo "pay=$PAY" >> $GITHUB_ENV
 
     - name: Update logs.json if valid
       if: steps.analyze_issue.outputs.success == 'true'
@@ -46,16 +80,19 @@ jobs:
         LOGS_FILE="data/logs.json"
 
         if [ ! -f "$LOGS_FILE" ]; then
-          echo "::error::$LOGS_FILE does not exist."
-          exit 1
+          echo "[]" > "$LOGS_FILE"
         fi
 
-        NEW_ENTRY="{ \"day\": \"$day\", \"restaurant\": \"$restaurant\" }"
-        jq ". + [$NEW_ENTRY]" "$LOGS_FILE" > tmp.$$.json && mv tmp.$$.json "$LOGS_FILE"
+        # 使用 jq 安全地建構 JSON 條目 (避免 Shell 注入)
+        jq --arg day "$day" \
+           --arg res "$restaurant" \
+           --argjson pay "$pay" \
+           '. += [{"day": $day, "restaurant": $res, "pay": $pay}]' \
+           "$LOGS_FILE" > tmp.$$.json && mv tmp.$$.json "$LOGS_FILE"
 
     - name: Commit and push changes
       if: steps.analyze_issue.outputs.success == 'true'
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Update logs.json from issue #${{ github.event.issue.number }}"
         file_pattern: data/logs.json
